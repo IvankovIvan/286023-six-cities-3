@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Ivan Ivankov](https://up.htmlacademy.ru/react/3/user/286023).
-* Наставник: `Неизвестно`.
+* Наставник: [Артем Брилев](https://htmlacademy.ru/profile/id1126425).
 
 ---
 
