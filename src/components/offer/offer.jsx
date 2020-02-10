@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+
 const Offer = (props) => {
-  const {offerName} = props;
+  const {offerName, clickOffer} = props;
   return (
     <article className="cities__place-card place-card">
       <div className="place-card__mark">
@@ -39,8 +40,8 @@ const Offer = (props) => {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name">
-          <a href="#">{offerName}</a>
+        <h2 className="place-card__name" onClick={clickOffer}>
+          <a href="#" >{offerName}</a>
         </h2>
         <p className="place-card__type">Apartment</p>
       </div>
@@ -49,7 +50,8 @@ const Offer = (props) => {
 };
 
 Offer.propTypes = {
-  offerName: PropTypes.string.isRequired
+  offerName: PropTypes.string.isRequired,
+  clickOffer: PropTypes.func.isRequired
 };
 
 export default Offer;
