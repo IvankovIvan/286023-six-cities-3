@@ -5,7 +5,7 @@ import Offer from "./offer.jsx";
 it(`Render Offer`, () => {
   const offerName = `Nice, cozy, warm big bed apartment`;
   const tree = renderer
-    .create(<Offer offerName={offerName}/>)
+    .create(<Offer offerName={offerName} clickOffer={() => {}}/>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();

@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import Offer from "../offer/offer.jsx";
 
+const clickOffer = () => {};
+
 const Main = (props) => {
   const {offersName} = props;
   return (
@@ -118,7 +120,9 @@ const Main = (props) => {
               </form>
               <div className="cities__places-list places__list tabs__content">
                 {offersName.map((offerName, i) =>
-                  <Offer key={offerName + i} offerName={offerName}/>)}
+                  <Offer key={offerName + i} offerName={offerName}
+                    clickOffer={clickOffer}/>)
+                }
               </div>
             </section>
             <div className="cities__right-section">
