@@ -18,5 +18,5 @@ it(`Should title click`, () => {
 
   offerClick.props().onClick();
 
-  expect(offerClick.mock.calls.length).toBe(1);
+  expect(clickOffer.mock.calls.length).toBe(1);
 });
