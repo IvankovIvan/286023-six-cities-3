@@ -117,7 +117,8 @@ const Main = (props) => {
 
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {offersName.map((offerName, i) => <Offer key={offerName + i} offerName={offerName}/>)}
+                {offersName.map((offerName, i) =>
+                  <Offer key={offerName + i} offerName={offerName}/>)}
               </div>
             </section>
             <div className="cities__right-section">
@@ -131,7 +132,9 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  offersName: PropTypes.array.isRequired
+  offersName: PropTypes.arrayOf(
+      PropTypes.string.isRequired
+  ).isRequired
 };
 
 export default Main;
