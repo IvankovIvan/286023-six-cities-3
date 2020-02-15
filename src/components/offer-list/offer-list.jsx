@@ -13,6 +13,7 @@ class OfferList extends PureComponent {
       offer: {}
     };
   }
+
   render() {
     const {offers} = this.props;
     return (
