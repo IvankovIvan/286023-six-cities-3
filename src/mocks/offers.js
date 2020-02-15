@@ -1,12 +1,14 @@
+import {OfferType} from "../const.js";
+
 export default [
   {
     mark: true,
     image: `img/apartment-01.jpg`,
     price: 100,
     bookmark: false,
-    rating: 4,
+    rating: 3,
     name: `luxurious apartment at great location`,
-    type: `Apartment`
+    type: OfferType.APARTMENT
   },
   {
     mark: true,
@@ -15,7 +17,7 @@ export default [
     bookmark: true,
     rating: 3,
     name: `Wood and stone place`,
-    type: `Private room`
+    type: OfferType.PRIVATE
   },
   {
     mark: false,
@@ -24,7 +26,7 @@ export default [
     bookmark: true,
     rating: 2,
     name: `Canal View Prinsengracht`,
-    type: `Apartment`
+    type: OfferType.APARTMENT
   },
   {
     mark: false,
@@ -33,6 +35,6 @@ export default [
     bookmark: false,
     rating: 5,
     name: `Nice, cozy, warm big bed apartment`,
-    type: `Apartment`
+    type: OfferType.APARTMENT
   }
 ];
