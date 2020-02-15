@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Offer from "../offer/offer.jsx";
 import {OfferType} from "../../const.js";
-
-const clickOffer = () => {};
+import OfferList from "../offer-list/offer-list.jsx";
 
 const Main = (props) => {
   const {offers} = props;
@@ -107,16 +105,9 @@ const Main = (props) => {
                   </li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {offers.map((offer, i) =>
-                  <Offer key={offer + i} offer={offer}
-                    clickOffer={clickOffer}
-                    onOver={(offerCurrent) => {
-                      console.log(offerCurrent);
-                    }}
-                  />)
-                }
-              </div>
+
+              <OfferList offers={offers}/>
+
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"/>
