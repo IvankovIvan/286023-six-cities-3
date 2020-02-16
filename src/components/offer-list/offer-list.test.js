@@ -1,13 +1,11 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import App from "./app.jsx";
+import OfferList from "./offer-list.jsx";
 import {OFFERS_NAME_TEST} from "../../mocks/test/data.js";
 
-it(`Render App`, () => {
+it(`Renderer OfferList.`, () => {
   const tree = renderer
-    .create(<App
-      offers={OFFERS_NAME_TEST}
-    />)
+    .create(<OfferList offers={OFFERS_NAME_TEST} />)
     .toJSON();
 
   expect(tree).toMatchSnapshot();
