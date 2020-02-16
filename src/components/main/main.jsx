@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Offer from "../offer/offer.jsx";
-
-const clickOffer = () => {};
+import {OfferType} from "../../const.js";
+import OfferList from "../offer-list/offer-list.jsx";
 
 const Main = (props) => {
-  const {offersName} = props;
+  const {offers} = props;
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -105,25 +104,10 @@ const Main = (props) => {
                   <li className="places__option" tabIndex="0">Top rated first
                   </li>
                 </ul>
-
-                {/* <select class="places__sorting-type" id="places-sorting">*/}
-                {/*  <option class="places__option" */}
-                {/* value="popular" selected="">Popular</option>*/}
-                {/*  <option class="places__option" */}
-                {/* value="to-high">Price: low to high</option>*/}
-                {/*  <option class="places__option" */}
-                {/* value="to-low">Price: high to low</option>*/}
-                {/*  <option class="places__option" */}
-                {/* value="top-rated">Top rated first</option>*/}
-                {/* </select>*/}
-
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {offersName.map((offerName, i) =>
-                  <Offer key={offerName + i} offerName={offerName}
-                    clickOffer={clickOffer}/>)
-                }
-              </div>
+
+              <OfferList offers={offers}/>
+
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"/>
@@ -136,9 +120,18 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  offersName: PropTypes.arrayOf(
-      PropTypes.string.isRequired
-  ).isRequired
+  offers: PropTypes.arrayOf(PropTypes.shape(
+      {
+        mark: PropTypes.bool.isRequired,
+        image: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        bookmark: PropTypes.bool.isRequired,
+        rating: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        type: PropTypes.oneOf(
+            [OfferType.APARTMENT, OfferType.PRIVATE]).isRequired,
+      }
+  )).isRequired
 };
 
 export default Main;

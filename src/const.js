@@ -6,3 +6,8 @@ export const OFFERS_NAME = [
   `Nice, cozy, warm big bed apartment`,
   `Wood and stone place`
 ];
+
+export const OfferType = {
+  APARTMENT: `Apartment`,
+  PRIVATE: `Private room`
+};
