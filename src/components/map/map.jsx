@@ -6,15 +6,19 @@ class Map extends PureComponent {
     super(props);
     this._mapRef = createRef();
   }
-  componentDidMount() {
-    const mapRef = this._mapRef.current;
+
+  init() {
+    if (this.mapRef) {
+      return;
+    }
+    this.mapRef = this._mapRef.current;
     const city = [52.38333, 4.9];
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
     });
     const zoom = 12;
-    const map = leaflet.map(mapRef, {
+    const map = leaflet.map(this.mapRef, {
       center: city,
       zoom,
       zoomControl: false,
@@ -34,9 +38,13 @@ class Map extends PureComponent {
       .addTo(map);
   }
 
+  componentDidMount() {
+    this.init();
+  }
+
   render() {
     return (
-      <div id="map" ref={this._mapRef}/>
+      <div ref={this._mapRef} className="cities__map map" style={{heigth: `100%`}}/>
     );
   }
 }
