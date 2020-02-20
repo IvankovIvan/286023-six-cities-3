@@ -1,20 +1,20 @@
-import React, {PureComponent} from "react";
+import React, {PureComponent, createRef} from "react";
 import leaflet from "leaflet";
 
 class Map extends PureComponent {
-  // constructor(props) {
-  //   super(props);
-  //   // this._mapRef = createRef();
-  // }
-  render() {
-    // const mapRef = this._mapRef.current;
+  constructor(props) {
+    super(props);
+    this._mapRef = createRef();
+  }
+  componentDidMount() {
+    const mapRef = this._mapRef.current;
     const city = [52.38333, 4.9];
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
     });
     const zoom = 12;
-    const map = leaflet.map(`map`, {
+    const map = leaflet.map(mapRef, {
       center: city,
       zoom,
       zoomControl: false,
@@ -32,9 +32,11 @@ class Map extends PureComponent {
     leaflet
       .marker(offerCords, {icon})
       .addTo(map);
+  }
 
+  render() {
     return (
-      <div id="map"></div>
+      <div id="map" ref={this._mapRef}/>
     );
   }
 }
