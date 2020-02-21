@@ -1,5 +1,6 @@
 import React, {PureComponent, createRef} from "react";
 import leaflet from "leaflet";
+import PropTypes from "prop-types";
 
 class Map extends PureComponent {
   constructor(props) {
@@ -32,10 +33,13 @@ class Map extends PureComponent {
       })
       .addTo(map);
 
-    const offerCords = [52.3709553943508, 4.89309666406198];
-    leaflet
-      .marker(offerCords, {icon})
-      .addTo(map);
+    const offersCords = this.props.offersCords;
+
+    offersCords.map((offerCords) =>
+      leaflet
+        .marker(offerCords, {icon})
+        .addTo(map)
+    );
   }
 
   componentDidMount() {
@@ -44,10 +48,17 @@ class Map extends PureComponent {
 
   render() {
     return (
-      <div ref={this._mapRef} className="cities__map map" style={{heigth: `100%`}}/>
+      <div ref={this._mapRef}
+        className="cities__map map"/>
     );
   }
 }
+
+Map.propTypes = {
+  offersCords: PropTypes.arrayOf(
+      PropTypes.arrayOf(
+          PropTypes.number.isRequired).isRequired).isRequired
+};
 
 export default Map;
 
