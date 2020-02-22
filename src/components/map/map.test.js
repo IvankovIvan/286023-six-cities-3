@@ -2,6 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Map from "./map.jsx";
 
+jest.mock(`./map`);
 it(`Render Map`, () => {
   const coords = [
     [52.3909553943508, 4.85309666406198],
@@ -9,10 +10,7 @@ it(`Render Map`, () => {
     [52.3809553943508, 4.939309666406198]
   ];
   const tree = renderer
-    .create(<Map offersCords={coords}/>, {
-      createNodeMock: () => {
-        return {};
-      }})
+    .create(<Map offersCords={coords}/>)
   .toJSON();
 
   expect(tree).toMatchSnapshot();
