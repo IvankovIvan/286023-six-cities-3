@@ -8,7 +8,8 @@ export default [
     bookmark: false,
     rating: 3,
     name: `luxurious apartment at great location`,
-    type: OfferType.APARTMENT
+    type: OfferType.APARTMENT,
+    coordinates: [52.3909553943508, 4.85309666406198]
   },
   {
     mark: true,
@@ -17,7 +18,8 @@ export default [
     bookmark: true,
     rating: 3,
     name: `Wood and stone place`,
-    type: OfferType.PRIVATE
+    type: OfferType.PRIVATE,
+    coordinates: [52.369553943508, 4.85309666406198]
   },
   {
     mark: false,
@@ -26,7 +28,8 @@ export default [
     bookmark: true,
     rating: 2,
     name: `Canal View Prinsengracht`,
-    type: OfferType.APARTMENT
+    type: OfferType.APARTMENT,
+    coordinates: [52.3909553943508, 4.929309666406198]
   },
   {
     mark: false,
@@ -35,6 +38,7 @@ export default [
     bookmark: false,
     rating: 5,
     name: `Nice, cozy, warm big bed apartment`,
-    type: OfferType.APARTMENT
+    type: OfferType.APARTMENT,
+    coordinates: [52.3809553943508, 4.939309666406198]
   }
 ];

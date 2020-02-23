@@ -2,9 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import {OfferType} from "../../const.js";
 import OfferList from "../offer-list/offer-list.jsx";
+import Map from "../map/map.jsx";
 
 const Main = (props) => {
   const {offers} = props;
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -110,7 +112,7 @@ const Main = (props) => {
 
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"/>
+              <Map offersCords={offers.map((offer) => offer.coordinates)}/>
             </div>
           </div>
         </div>
