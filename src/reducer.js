@@ -1,8 +1,9 @@
 import {Offers, Cities} from "./mocks/offers.js";
+import {extend} from "./utils";
 
 const initialState = {
   cities: Cities,
-  city: `Amsterdam`,
+  cityIdCurrent: 1,
   offers: Offers
 };
 
@@ -11,9 +12,22 @@ const ActionType = {
   GET_OFFERS: `GET_OFFERS`
 };
 
-const reducer = (state = initialState, action) => {
-
-  return state;
+const ActionCreator = {
+  changeCity: (cityId) => ({
+    type: ActionType.CHANGE_CITY,
+    payload: cityId
+  })
 };
 
-export {reducer, ActionType};
+const reducer = (state = initialState, action) => {
+  switch (ActionType) {
+    case ActionType.CHANGE_CITY:
+      return extend(state, {
+        cityIdCurrent: action.payload
+      });
+    default:
+      return state;
+  }
+};
+
+export {reducer, ActionType, ActionCreator};
