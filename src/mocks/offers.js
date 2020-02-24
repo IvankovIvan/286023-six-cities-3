@@ -1,6 +1,15 @@
 import {OfferType} from "../const.js";
 
-export default [
+const Cities = [
+  `Paris`,
+  `Cologne`,
+  `Brussels`,
+  `Amsterdam`,
+  `Hamburg`,
+  `Dusseldorf`
+];
+
+const Offers = [
   {
     mark: true,
     image: `img/apartment-01.jpg`,
@@ -42,3 +51,5 @@ export default [
     coordinates: [52.3809553943508, 4.939309666406198]
   }
 ];
+
+export {Offers, Cities};

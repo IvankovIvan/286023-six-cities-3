@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux";
 import Main from "../main/main.jsx";
 import PropTypes from "prop-types";
 import {OfferType} from "../../const";
@@ -25,4 +26,11 @@ App.propTypes = {
   )).isRequired
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  offers: state.offers
+});
+
+export {App};
+
+export default connect(mapStateToProps)(App);
+
