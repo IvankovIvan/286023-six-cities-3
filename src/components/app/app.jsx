@@ -1,28 +1,11 @@
 import React from "react";
 import Main from "../main/main.jsx";
-import PropTypes from "prop-types";
-import {OfferType} from "../../const";
 
-const App = (props) => {
-  const {offers} = props;
+const App = () => {
   return (
-    <Main offers={offers}/>
+    <Main />
   );
 };
 
-App.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape(
-      {
-        mark: PropTypes.bool.isRequired,
-        image: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        bookmark: PropTypes.bool.isRequired,
-        rating: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        type: PropTypes.oneOf(
-            [OfferType.APARTMENT, OfferType.PRIVATE]).isRequired,
-      }
-  )).isRequired
-};
-
 export default App;
+
