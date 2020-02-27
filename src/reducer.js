@@ -4,7 +4,7 @@ import {extend} from "./utils";
 const initialState = {
   cities: Cities,
   cityIdCurrent: 1,
-  offers: Offers
+  offers: Offers.filter((offer) => (offer.cityId === 1))
 };
 
 const ActionType = {
@@ -20,10 +20,12 @@ const ActionCreator = {
 };
 
 const reducer = (state = initialState, action) => {
-  switch (ActionType) {
+
+  switch (action.type) {
     case ActionType.CHANGE_CITY:
       return extend(state, {
-        cityIdCurrent: action.payload
+        cityIdCurrent: action.payload,
+        offers: Offers.filter((offer) => (offer.cityId === action.payload))
       });
     default:
       return state;

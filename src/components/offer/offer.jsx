@@ -64,6 +64,7 @@ const Offer = (props) => {
 Offer.propTypes = {
   offer: PropTypes.shape(
       {
+        cityId: PropTypes.number.isRequired,
         mark: PropTypes.bool.isRequired,
         image: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
@@ -72,6 +73,8 @@ Offer.propTypes = {
         name: PropTypes.string.isRequired,
         type: PropTypes.oneOf(
             [OfferType.APARTMENT, OfferType.PRIVATE]).isRequired,
+        coordinates: PropTypes.arrayOf(
+            PropTypes.number.isRequired).isRequired,
       }
   ).isRequired,
   clickOffer: PropTypes.func.isRequired,

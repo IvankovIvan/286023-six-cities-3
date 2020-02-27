@@ -1,6 +1,34 @@
 import {OfferType} from "../../const";
 
-export const OFFERS_NAME_TEST = [
+const CITIES = [{
+  cityId: 1,
+  cityName: `Paris`,
+},
+{
+  cityId: 2,
+  cityName: `Cologne`
+},
+{
+  cityId: 3,
+  cityName: `Brussels`
+},
+{
+  cityId: 4,
+  cityName: `Amsterdam`
+},
+{
+  cityId: 5,
+  cityName: `Hamburg`
+},
+{
+  cityId: 6,
+  cityName: `Dusseldorf`
+},
+
+
+];
+
+const OFFERS_NAME_TEST = [
   {
     mark: true,
     image: `img/apartment-01.jpg`,
@@ -38,3 +66,5 @@ export const OFFERS_NAME_TEST = [
     type: OfferType.APARTMENT
   }
 ];
+
+export {CITIES, OFFERS_NAME_TEST};

@@ -14,6 +14,7 @@ const App = (props) => {
 App.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(
       {
+        cityId: PropTypes.number.isRequired,
         mark: PropTypes.bool.isRequired,
         image: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
@@ -22,6 +23,8 @@ App.propTypes = {
         name: PropTypes.string.isRequired,
         type: PropTypes.oneOf(
             [OfferType.APARTMENT, OfferType.PRIVATE]).isRequired,
+        coordinates: PropTypes.arrayOf(
+            PropTypes.number.isRequired).isRequired,
       }
   )).isRequired
 };

@@ -78,7 +78,7 @@ const Main = (props) => {
 
             </section>
             <div className="cities__right-section">
-              <Map offersCords={offers.map((offer) => offer.coordinates)}/>
+              <Map />
             </div>
           </div>
         </div>
@@ -90,6 +90,7 @@ const Main = (props) => {
 Main.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(
       {
+        cityId: PropTypes.number.isRequired,
         mark: PropTypes.bool.isRequired,
         image: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
@@ -98,6 +99,8 @@ Main.propTypes = {
         name: PropTypes.string.isRequired,
         type: PropTypes.oneOf(
             [OfferType.APARTMENT, OfferType.PRIVATE]).isRequired,
+        coordinates: PropTypes.arrayOf(
+            PropTypes.number.isRequired).isRequired,
       }
   )).isRequired
 };
