@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import {OfferType} from "../../const.js";
 import OfferList from "../offer-list/offer-list.jsx";
 import Map from "../map/map.jsx";
 import Cities from "../cities/cities.jsx";
 
 const Main = (props) => {
-  const {offers} = props;
-
+  const {offers, cityName} = props;
+  const offersCount = offers.length === 0 ? 0 : offers.length;
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -48,7 +49,8 @@ const Main = (props) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">312 places to stay in Amsterdam</b>
+              <b className="places__found">
+                {offersCount} places to stay in {cityName}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -102,7 +104,17 @@ Main.propTypes = {
         coordinates: PropTypes.arrayOf(
             PropTypes.number.isRequired).isRequired,
       }
-  )).isRequired
+  )).isRequired,
+  cityName: PropTypes.string.isRequired
 };
 
-export default Main;
+const mapStateToProps = (state) => {
+  const cityName = state.cities
+    .filter((city) => city.cityId === state.cityIdCurrent)[0].cityName;
+  return ({
+    offers: state.offers,
+    cityName
+  });
+};
+export {Main};
+export default connect(mapStateToProps)(Main);

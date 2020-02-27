@@ -1,39 +1,11 @@
 import React from "react";
-import {connect} from "react-redux";
 import Main from "../main/main.jsx";
-import PropTypes from "prop-types";
-import {OfferType} from "../../const";
 
-const App = (props) => {
-  const {offers} = props;
+const App = () => {
   return (
-    <Main offers={offers}/>
+    <Main />
   );
 };
 
-App.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape(
-      {
-        cityId: PropTypes.number.isRequired,
-        mark: PropTypes.bool.isRequired,
-        image: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        bookmark: PropTypes.bool.isRequired,
-        rating: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        type: PropTypes.oneOf(
-            [OfferType.APARTMENT, OfferType.PRIVATE]).isRequired,
-        coordinates: PropTypes.arrayOf(
-            PropTypes.number.isRequired).isRequired,
-      }
-  )).isRequired
-};
-
-const mapStateToProps = (state) => ({
-  offers: state.offers
-});
-
-export {App};
-
-export default connect(mapStateToProps)(App);
+export default App;
 
