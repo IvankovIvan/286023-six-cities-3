@@ -6,7 +6,6 @@ import {ActionCreator} from "../../reducer";
 class Cities extends PureComponent {
   render() {
     const {cities, cityIdCurrent, onCityClick} = this.props;
-    console.log(`cityIdCurrent: ` + cityIdCurrent);
     return (
       <section className="locations container">
         <ul className="locations__list tabs__list">
@@ -17,7 +16,6 @@ class Cities extends PureComponent {
                   cityIdCurrent === city.cityId ? `tabs__item--active` : ``
                 }`}
                 onClick={() => {
-                  console.log(city.cityId, cityIdCurrent);
                   onCityClick(city.cityId);
                 }}>
                   <span>{city.cityName}</span>

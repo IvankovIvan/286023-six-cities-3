@@ -1,9 +1,10 @@
 import React from "react";
-import {Provider} from "react-redux";
 import renderer from "react-test-renderer";
 import configureStore from "redux-mock-store";
-import App from "./app.jsx";
-import {OFFERS_NAME_TEST, CITIES} from "../../mocks/test/data.js";
+import {Provider} from "react-redux";
+import Cities from "./cities.jsx";
+import {OFFERS_NAME_TEST} from "../../mocks/test/data.js";
+import {CITIES} from "../../mocks/test/data";
 
 const mockStore = configureStore([]);
 const store = mockStore({
@@ -12,17 +13,17 @@ const store = mockStore({
   cities: CITIES
 });
 
-jest.mock(`../map/map`);
 
-
-it(`Render App`, () => {
+it(`Render Main`, () => {
   const tree = renderer
     .create(
         <Provider store={store}>
-          <App
-          />
+          <Cities onCityClick={() => {}}/>
         </Provider>
-    )
+        , {
+          createNodeMock: () => {
+            return {};
+          }})
     .toJSON();
 
   expect(tree).toMatchSnapshot();
