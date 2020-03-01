@@ -1,32 +1,32 @@
-import React, {PureComponent} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer";
 
-class Cities extends PureComponent {
-  render() {
-    const {cities, cityIdCurrent, onCityClick} = this.props;
-    return (
-      <section className="locations container">
-        <ul className="locations__list tabs__list">
-          {cities.map((city) => {
-            return (
-              <li className="locations__item" key={city.cityId}>
-                <a className={`locations__item-link tabs__item ${
-                  cityIdCurrent === city.cityId ? `tabs__item--active` : ``
-                }`}
-                onClick={() => {
-                  onCityClick(city.cityId);
-                }}>
-                  <span>{city.cityName}</span>
-                </a>
-              </li>);
-          })}
-        </ul>
-      </section>
-    );
-  }
-}
+const Cities = (props) => {
+  const {cities, cityIdCurrent, onCityClick, isActive} = props;
+
+  return (
+    <section className="locations container">
+      <ul className="locations__list tabs__list">
+        {cities.map((city) => {
+          return (
+            <li className="locations__item" key={city.cityId}>
+              <a className={`locations__item-link tabs__item ${
+                isActive(cityIdCurrent, city.cityId) ?
+                  `tabs__item--active` : ``
+              }`}
+              onClick={() => {
+                onCityClick(city.cityId);
+              }}>
+                <span>{city.cityName}</span>
+              </a>
+            </li>);
+        })}
+      </ul>
+    </section>
+  );
+};
 
 Cities.propTypes = {
   cities: PropTypes.arrayOf(
@@ -37,7 +37,8 @@ Cities.propTypes = {
       ).isRequired,
   ),
   cityIdCurrent: PropTypes.number.isRequired,
-  onCityClick: PropTypes.func.isRequired
+  onCityClick: PropTypes.func.isRequired,
+  isActive: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({

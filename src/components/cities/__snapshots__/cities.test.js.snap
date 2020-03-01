@@ -23,7 +23,7 @@ exports[`Render Main 1`] = `
       className="locations__item"
     >
       <a
-        className="locations__item-link tabs__item "
+        className="locations__item-link tabs__item tabs__item--active"
         onClick={[Function]}
       >
         <span>
@@ -35,7 +35,7 @@ exports[`Render Main 1`] = `
       className="locations__item"
     >
       <a
-        className="locations__item-link tabs__item "
+        className="locations__item-link tabs__item tabs__item--active"
         onClick={[Function]}
       >
         <span>
@@ -47,7 +47,7 @@ exports[`Render Main 1`] = `
       className="locations__item"
     >
       <a
-        className="locations__item-link tabs__item "
+        className="locations__item-link tabs__item tabs__item--active"
         onClick={[Function]}
       >
         <span>
@@ -59,7 +59,7 @@ exports[`Render Main 1`] = `
       className="locations__item"
     >
       <a
-        className="locations__item-link tabs__item "
+        className="locations__item-link tabs__item tabs__item--active"
         onClick={[Function]}
       >
         <span>
@@ -71,7 +71,7 @@ exports[`Render Main 1`] = `
       className="locations__item"
     >
       <a
-        className="locations__item-link tabs__item "
+        className="locations__item-link tabs__item tabs__item--active"
         onClick={[Function]}
       >
         <span>

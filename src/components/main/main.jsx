@@ -2,12 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {OfferType} from "../../const.js";
-import withOfferList from "../../hocs/with-offer-list/with-offer-list.js"
+import withOfferList from "../../hocs/with-offer-list/with-offer-list.js";
 import OfferList from "../offer-list/offer-list.jsx";
 import Map from "../map/map.jsx";
 import Cities from "../cities/cities.jsx";
+import withActiveItem from "../../hocs/with-active-item/with-active-item.js";
 
 const OfferListWrapped = withOfferList(OfferList);
+const CitiesWrapped = withActiveItem(Cities);
+
 
 const Main = (props) => {
   const {offers, cityName} = props;
@@ -46,7 +49,7 @@ const Main = (props) => {
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
-          <Cities />
+          <CitiesWrapped />
         </div>
         <div className="cities">
           <div className="cities__places-container container">

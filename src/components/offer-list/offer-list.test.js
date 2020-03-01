@@ -5,7 +5,7 @@ import {OFFERS_NAME_TEST} from "../../mocks/test/data.js";
 
 it(`Renderer OfferList.`, () => {
   const tree = renderer
-    .create(<OfferList offers={OFFERS_NAME_TEST} />)
+    .create(<OfferList offers={OFFERS_NAME_TEST} onOver={() => {}}/>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();
