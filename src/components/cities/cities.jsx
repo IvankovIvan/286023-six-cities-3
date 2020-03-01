@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer";
 
 const Cities = (props) => {
-  const {cities, cityIdCurrent, onCityClick, isActive} = props;
+  const {cities, onCityClick, idActive} = props;
 
   return (
     <section className="locations container">
@@ -12,10 +12,9 @@ const Cities = (props) => {
         {cities.map((city) => {
           return (
             <li className="locations__item" key={city.cityId}>
-              <a className={`locations__item-link tabs__item ${
-                isActive(cityIdCurrent, city.cityId) ?
-                  `tabs__item--active` : ``
-              }`}
+              <a className={`locations__item-link tabs__item
+              ${idActive === city.cityId ? `tabs__item--active` : ``}
+              `}
               onClick={() => {
                 onCityClick(city.cityId);
               }}>
@@ -36,16 +35,9 @@ Cities.propTypes = {
       }
       ).isRequired,
   ),
-  cityIdCurrent: PropTypes.number.isRequired,
+  idActive: PropTypes.number.isRequired,
   onCityClick: PropTypes.func.isRequired,
-  isActive: PropTypes.func.isRequired
 };
-
-const mapStateToProps = (state) => ({
-  cities: state.cities,
-  cityIdCurrent: state.cityIdCurrent,
-
-});
 
 const mapDispatchToProps = (dispatch) => ({
   onCityClick(cityId) {
@@ -54,4 +46,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {Cities};
-export default connect(mapStateToProps, mapDispatchToProps)(Cities);
+export default connect(null, mapDispatchToProps)(Cities);

@@ -14,8 +14,10 @@ const CitiesWrapped = withActiveItem(Cities);
 
 
 const Main = (props) => {
-  const {offers, cityName} = props;
+  const {offers, cities, cityIdCurrent} = props;
   const offersCount = offers.length === 0 ? 0 : offers.length;
+  const cityName = cities
+    .filter((city) => city.cityId === cityIdCurrent)[0].cityName;
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -25,7 +27,7 @@ const Main = (props) => {
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
-          <CitiesWrapped />
+          <CitiesWrapped cities={cities} cityIdCurrent={cityIdCurrent}/>
         </div>
         <div className="cities">
           <div className="cities__places-container container">
@@ -87,15 +89,21 @@ Main.propTypes = {
             PropTypes.number.isRequired).isRequired,
       }
   )).isRequired,
-  cityName: PropTypes.string.isRequired
+  cities: PropTypes.arrayOf(
+      PropTypes.shape({
+        cityId: PropTypes.number.isRequired,
+        cityName: PropTypes.string.isRequired
+      }
+      ).isRequired,
+  ),
+  cityIdCurrent: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => {
-  const cityName = state.cities
-    .filter((city) => city.cityId === state.cityIdCurrent)[0].cityName;
   return ({
     offers: state.offers,
-    cityName
+    cities: state.cities,
+    cityIdCurrent: state.cityIdCurrent
   });
 };
 export {Main};

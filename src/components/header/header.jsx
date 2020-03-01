@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 const Header = (props) => {
   const {isHref} = props;
-  console.log(isHref);
   const className = isHref ? `` : `header__logo-link--active`;
   const hRef = isHref ? `main.html` : undefined;
   return (
