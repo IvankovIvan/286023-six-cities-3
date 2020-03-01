@@ -2,9 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {OfferType} from "../../const.js";
+import withOfferList from "../../hocs/with-offer-list/with-offer-list.js"
 import OfferList from "../offer-list/offer-list.jsx";
 import Map from "../map/map.jsx";
 import Cities from "../cities/cities.jsx";
+
+const OfferListWrapped = withOfferList(OfferList);
 
 const Main = (props) => {
   const {offers, cityName} = props;
@@ -76,7 +79,7 @@ const Main = (props) => {
                 </ul>
               </form>
 
-              <OfferList offers={offers}/>
+              <OfferListWrapped offers={offers}/>
 
             </section>
             <div className="cities__right-section">

@@ -9,6 +9,7 @@ const withOfferList = (Component) => {
       this.state = {
         offer: {}
       };
+      this.handleOver = this.handleOver.bind(this);
     }
 
     handleOver(offerCurrent) {
@@ -19,7 +20,7 @@ const withOfferList = (Component) => {
 
     render() {
       return (
-        <Component {...this.props} onOver={this.onOver}/>
+        <Component {...this.props} onOver={this.handleOver}/>
       );
     }
   }
@@ -41,3 +42,5 @@ const withOfferList = (Component) => {
 
   return WithOfferList;
 };
+
+export default withOfferList;
