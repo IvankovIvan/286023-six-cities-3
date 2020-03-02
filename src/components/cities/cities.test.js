@@ -18,7 +18,7 @@ it(`Render Main`, () => {
   const tree = renderer
     .create(
         <Provider store={store}>
-          <Cities onCityClick={() => {}}/>
+          <Cities onCityClick={() => {}} cities={CITIES} idActive={1} />
         </Provider>
         , {
           createNodeMock: () => {

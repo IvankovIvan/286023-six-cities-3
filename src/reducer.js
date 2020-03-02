@@ -1,5 +1,4 @@
 import {Offers, Cities} from "./mocks/offers.js";
-import {extend} from "./utils";
 
 const initialState = {
   cities: Cities,
@@ -23,10 +22,13 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case ActionType.CHANGE_CITY:
-      return extend(state, {
-        cityIdCurrent: action.payload,
-        offers: Offers.filter((offer) => (offer.cityId === action.payload))
-      });
+      return {
+        ...state,
+        ...{
+          cityIdCurrent: action.payload,
+          offers: Offers.filter((offer) => (offer.cityId === action.payload))
+        }
+      };
     default:
       return state;
   }
