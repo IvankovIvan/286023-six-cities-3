@@ -4,7 +4,7 @@ import {createStore, applyMiddleware, compose} from "redux";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
 import App from "./components/app/app.jsx";
-import {reducer} from "./reducer.js";
+import {reducer, Operation} from "./reducer.js";
 import {createAPI} from "./api";
 
 const api = createAPI();
@@ -17,6 +17,8 @@ const store = createStore(
           window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
     )
 );
+
+store.dispatch(Operation.loadOffers());
 
 ReactDOM.render(
     <Provider store={store}>

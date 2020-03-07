@@ -14,6 +14,7 @@ const CitiesWrapped = withActiveItem(Cities);
 
 
 const Main = (props) => {
+  // debugger;
   const {offers, cities, cityIdCurrent} = props;
   const offersCount = offers.length === 0 ? 0 : offers.length;
   const cityName = cities
